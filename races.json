@@ -1,0 +1,38 @@
+[
+  {
+  "name": "Test Run2",
+  "distance": "5k",
+  "date": "Feb. 28, 2018",
+  "city": "Raleigh",
+  "state": "NC",
+  "zip": "27604",
+  "description": "description about this run",
+  "website": "www.testrun.com",
+  "contact_name": "brent",
+  "contact_email": "brent@email.com",
+  "contact_phone": "704-555-5555",
+  "isApproved": false,
+  "admin_username": "brentfrancese",
+  "fb_page": "testrun.fb",
+  "twitter": "@testrun",
+  "instagram": "@testrun"
+},
+{
+  "name": "Test Run2",
+  "distance": "5k",
+  "date": "Feb. 28, 2018",
+  "city": "Raleigh",
+  "state": "NC",
+  "zip": "27604",
+  "description": "description about this run",
+  "website": "www.testrun.com",
+  "contact_name": "brent",
+  "contact_email": "brent@email.com",
+  "contact_phone": "704-555-5555",
+  "isApproved": false,
+  "admin_username": "brentfrancese",
+  "fb_page": "testrun.fb",
+  "twitter": "@testrun",
+  "instagram": "@testrun"
+}
+]
