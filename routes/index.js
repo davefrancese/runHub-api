@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'RunHub API' });
 });
 
-const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/'
+const url = process.env.PROD_MONGODB || 'mongodb://localhost:27017/'
 
 router.get('/runhub', (req, res, next) => {
   var collection = 'events'
