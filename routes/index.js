@@ -5,36 +5,19 @@ var mongoose = require('mongoose')
 var assert = require('assert');
 var race = require('../models/events');
 var allRaces = require('../races.json')
-
+require('dotenv').config();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'RunHub API' });
 });
 
+const url = process.env.MONGODB_URI || 'mongodb://localhost:27017/'
+
 router.get('/runhub', (req, res, next) => {
   var collection = 'events'
-  if (process.env.MONGODB_URI) {
+  // if (process.env.MONGODB_URI ) {
     // var url = 'mongodb://dfrancese:rundtr@ds113648.mlab.com:13648/runhub'
-    mongo.connect(process.env.MONGODB_URI, (err, client) => {
-      if(err) {
-        console.log(err);
-      } else {
-        console.log('CONNECTED!!!!');
-        var collection = client.db('runhub').collection('events')
-        collection.find({}).toArray((err, result) => {
-          if(err) {
-            res.send(err)
-          } else if (result.length) {
-            res.send(result)
-          } else {
-            res.send('No Results')
-          }
-        })
-      }
-    })
-  } else {
-    var url = 'mongodb://localhost:27017/'
     mongo.connect(url, (err, client) => {
       if(err) {
         console.log(err);
@@ -52,7 +35,27 @@ router.get('/runhub', (req, res, next) => {
         })
       }
     })
-  }
+
+  // } else {
+  //   var url = 'mongodb://localhost:27017/'
+  //   mongo.connect(url, (err, client) => {
+  //     if(err) {
+  //       console.log(err);
+  //     } else {
+  //       console.log('CONNECTED!!!!');
+  //       var collection = client.db('runhub').collection('events')
+  //       collection.find({}).toArray((err, result) => {
+  //         if(err) {
+  //           res.send(err)
+  //         } else if (result.length) {
+  //           res.send(result)
+  //         } else {
+  //           res.send('No Results')
+  //         }
+  //       })
+  //     }
+  //   })
+  // }
 
 })
 
