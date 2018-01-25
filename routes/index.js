@@ -86,7 +86,7 @@ router.get('/runhub/seedsub', (req, res, next) => {
     } else {
       console.log('CONNECTED!!!!');
       var collection = client.db('runhub').collection('submits')
-      collection.insert(req)
+      collection.insert(req.body)
       .then(result => {
         if(result.writeError) {
           res.send(result.writeError)
