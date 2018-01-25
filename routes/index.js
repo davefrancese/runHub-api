@@ -57,5 +57,28 @@ router.get('/runhub/seed', (req, res, next) => {
   })
 })
 
+// VIEW ALL SUBMITTED EVENTS
+router.get('/runhub/sub', (req, res, next) => {
+  var collection = 'submits'
+  mongo.connect(url, (err, client) => {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log('CONNECTED!!!!');
+      var collection = client.db('runhub').collection('submits')
+      collection.find({}).toArray((err, result) => {
+        if(err) {
+          res.send(err)
+        } else if (result.length) {
+          res.send(result)
+        } else {
+          res.send('No Results')
+        }
+      })
+    }
+  })
+})
+
+
 
 module.exports = router;
