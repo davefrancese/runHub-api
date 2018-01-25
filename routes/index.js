@@ -80,16 +80,13 @@ router.get('/runhub/sub', (req, res, next) => {
 })
 
 router.get('/runhub/seedsub', (req, res, next) => {
-  var collection = 'submits'
-
   mongo.connect(url, (err, client) => {
-    console.log(client);
     if(err) {
       console.log(err);
     } else {
       console.log('CONNECTED!!!!');
       var collection = client.db('runhub').collection('submits')
-      collection.insert()
+      collection.insert(req)
       .then(result => {
         if(result.writeError) {
           res.send(result.writeError)
